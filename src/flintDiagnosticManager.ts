@@ -18,11 +18,17 @@ export class FlintDiagnosticManager {
         const errors = this.jsonInfo.modelValidator.getDiagnostics().map((diagnostic: { offset: number[]; code: any; message: any; severity: any; source: any; }) => {
             const beginPosition = document.positionAt(diagnostic.offset[0]); 
             const endPosition = document.positionAt(diagnostic.offset[1]);
+
+            let severity = vscode.DiagnosticSeverity.Hint;
+
+            severity = diagnostic.severity === "ERROR" ? vscode.DiagnosticSeverity.Error : severity;
+            severity = diagnostic.severity === "WARNING" ? vscode.DiagnosticSeverity.Warning : severity;
+
             return {
                 code: diagnostic.code,
                 message: diagnostic.message,
                 range: new vscode.Range(beginPosition, endPosition),
-                severity: diagnostic.severity,
+                severity: severity,
                 source: diagnostic.source,
                 relatedInformation: []
             }

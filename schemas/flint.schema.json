@@ -1,5 +1,5 @@
 {
-    "$schema": "http://json-schema.org/schema#",
+    "$schema": "https://json-schema.org/draft/2019-09/schema#",
     "type": "object",
     "definitions": {
         "expression": {
@@ -85,8 +85,8 @@
                     "object": { "type": "string"},
                     "interested-party": { "type": "string"},
                     "preconditions": { "$ref": "#/definitions/expression"},
-                    "create": { "type": "string"},
-                    "terminate": { "type": "string"},
+                    "create": { "type": "array", "items": {"type": "string"}},
+                    "terminate": { "type": "array", "items": {"type": "string"}},
                     "version": { "type": "string"},
                     "reference": { "type": "string"},
                     "juriconnect": { "type": "string"},
@@ -106,8 +106,8 @@
                             "object": "[$4]",
                             "interested-party": "[$5]",
                             "preconditions": "$6",
-                            "create": "$7",
-                            "tminate": "$8",
+                            "create": [],
+                            "terminate": [],
                             "version": "$9",
                             "reference": "$10",
                             "juriconnect": "$11",
