@@ -76,7 +76,7 @@
 		"vscode-test": "^1.0.2"
 	},
 	"dependencies": {
-		"@discipl/compliance-by-design": "file:../../packages/discipl-compliance-by-design-0.1.1.tgz",
+		"@discipl/compliance-by-design": "^0.1.1",
 		"@discipl/law-reg": "^0.3.2",
 		"jsonc-parser": "^2.1.1"
 	}
