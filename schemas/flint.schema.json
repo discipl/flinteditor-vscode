@@ -163,7 +163,7 @@
                         "description": "Insert a new fact",
                         "body": {
                             "fact": "[$1]",
-                            "function": "$2",
+                            "function": "[$2]",
                             "version": "$3",
                             "art": "$4",
                             "juriconnect": "$5",
