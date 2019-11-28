@@ -35,10 +35,8 @@
                     "description": "Insert LIST",
                     "body": {
                         "expression": "LIST",
-                        "name": "^$1",
-                        "items": [
-                            "^$2"
-                        ]
+                        "name": "$1",
+                        "items": "^$2"
                     }
                 }
             ]
