@@ -6,6 +6,7 @@
             "anyOf": [
                 {"$ref": "#/definitions/multi"},
                 {"$ref": "#/definitions/not"},
+                {"$ref": "#/definitions/list"},
                 {"type": "string",
                  "defaultSnippets": [{
                     "label": "Fact",
@@ -13,6 +14,32 @@
                     "body": "[$1]"
                     }
                  ]
+                }
+            ]
+        },
+        "list": {
+            "type": "object",
+            "properties": {
+                "expression": {
+                    "type": "string", 
+                    "pattern": "^LIST$"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "items": {"$ref": "#/definitions/expression"}
+            },
+            "defaultSnippets": [
+                {
+                    "label": "LIST",
+                    "description": "Insert LIST",
+                    "body": {
+                        "expression": "LIST",
+                        "name": "^$1",
+                        "items": [
+                            "^$2"
+                        ]
+                    }
                 }
             ]
         },
