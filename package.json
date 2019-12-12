@@ -3,7 +3,7 @@
 	"displayName": "FlintEditor",
 	"publisher": "pim",
 	"description": "",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"engines": {
 		"vscode": "^1.37.0"
 	},
@@ -18,6 +18,16 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"configuration": {
+			"title": "FLINT editor",
+			"properties": {
+				"flinteditor.run_configuration": {
+					"description": "Run configurations for FLINT models",
+					"type": "object",
+					"scope": "resource"
+				}
+			}
+		},
 		"commands": [
 			{
 				"command": "extension.run",
@@ -76,7 +86,7 @@
 		"vscode-test": "^1.0.2"
 	},
 	"dependencies": {
-		"@discipl/compliance-by-design": "^0.1.1",
+		"@discipl/compliance-by-design": "^0.1.3",
 		"@discipl/law-reg": "^0.3.2",
 		"jsonc-parser": "^2.1.1"
 	}

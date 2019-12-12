@@ -20,6 +20,7 @@ export class FlintPanel {
 	public static createOrShow(extensionPath: string, jsonInfo: JsonInfo) {
 		const column = vscode.window.activeTextEditor ? vscode.window.activeTextEditor.viewColumn : undefined;
 
+
 		// If we already have a panel, show it.
 		// Otherwise, create a new panel.
 		if (FlintPanel.currentPanel) {
@@ -100,6 +101,8 @@ export class FlintPanel {
 		const stylePathOnDisk = vscode.Uri.file(path.join(this._extensionPath, 'build', mainStyle));
 		const styleUri = stylePathOnDisk.with({ scheme: 'vscode-resource' });
 
+		const flintConfig = JSON.stringify(vscode.workspace.getConfiguration('flinteditor')['run_configuration']);
+		console.log("Injecting config: ", flintConfig);
 		console.log("Getting nonce");
 		// Use a nonce to whitelist which scripts can be run
 		const nonce = getNonce();
@@ -120,6 +123,7 @@ export class FlintPanel {
 				<noscript>You need to enable JavaScript to run this app.</noscript>
 				<div id="root"></div>
 				<script>window.model = ${model};</script>
+				<script>window.flintConfig = ${flintConfig};</script>
 				<script nonce="${nonce}" src="${scriptUri}"></script>
 			</body>
 			</html>`;
