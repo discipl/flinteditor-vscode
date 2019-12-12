@@ -10,8 +10,6 @@ export class JsonInfo {
     public raw : string = "";
     public modelValidator : any = {};
 
-    private document : vscode.TextDocument | undefined;
-
     private _dataUpdated : vscode.EventEmitter<null> = new vscode.EventEmitter<null>();
     public dataUpdated : vscode.Event<null> = this._dataUpdated.event;
 
@@ -19,17 +17,26 @@ export class JsonInfo {
         this.computeData();
 
         vscode.workspace.onDidSaveTextDocument(() => this.computeData());
+        vscode.workspace.onDidChangeTextDocument(() => this.computeData());
+        vscode.window.onDidChangeActiveTextEditor(() => this.computeData());
     }
 
     private computeData() {
         if (vscode.window.activeTextEditor) {
             const flintModelDocument = vscode.window.activeTextEditor.document;
-            this.document = flintModelDocument;
-            const flintJson = fs.readFileSync(flintModelDocument.fileName, 'utf-8');
-            this.raw = flintJson;
-            this.modelValidator = new ModelValidator(flintJson);
+            if (flintModelDocument.fileName && flintModelDocument.fileName.endsWith(".flint.json")) {
+                const flintJson = fs.readFileSync(flintModelDocument.fileName, 'utf-8');
+                this.raw = flintJson;
+                this.modelValidator = new ModelValidator(flintJson);
 
-            this._dataUpdated.fire();
+                this._dataUpdated.fire();
+            }
+            else {
+                this.raw = "";
+                this.modelValidator = {};
+                this._dataUpdated.fire();
+            }
+            
         }
     }
 }
