@@ -27,16 +27,16 @@ export class FlintPanel {
 			FlintPanel.currentPanel._panel.reveal(column);
 		} else {
 			console.log("Creating new panel");
-			FlintPanel.currentPanel = new FlintPanel(extensionPath, column || vscode.ViewColumn.One, jsonInfo.raw);
+			FlintPanel.currentPanel = new FlintPanel(extensionPath, column || vscode.ViewColumn.One, jsonInfo);
 		}
 	}
 
-	private constructor(extensionPath: string, column: vscode.ViewColumn, model: string) {
+	private constructor(extensionPath: string, column: vscode.ViewColumn, jsonInfo: JsonInfo) {
 		this._extensionPath = extensionPath;
 
 		console.log("Creating new webview");
 		// Create and show a new webview panel
-		this._panel = vscode.window.createWebviewPanel(FlintPanel.viewType, "React", column, {
+		this._panel = vscode.window.createWebviewPanel(FlintPanel.viewType, "Flint Execution", column, {
 			// Enable javascript in the webview
 			enableScripts: true,
 
@@ -48,7 +48,10 @@ export class FlintPanel {
 		
 		console.log("Setting html content");
 		// Set the webview's initial html content 
-		this._panel.webview.html = this._getHtmlForWebview(model);
+		this._panel.webview.html = this._getHtmlForWebview(jsonInfo.raw);
+		jsonInfo.dataUpdated(() => {
+			this._panel.webview.html = this._getHtmlForWebview(jsonInfo.raw);
+		}, this);
 
 		console.log("Listening for dispose");
 		// Listen for when the panel is disposed
