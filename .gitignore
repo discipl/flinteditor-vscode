@@ -20,7 +20,6 @@
 .env.test.local
 .env.production.local
 
-.vscode
 .idea
 
 npm-debug.log*
