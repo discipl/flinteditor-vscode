@@ -6,8 +6,7 @@
             "type": "object",
             "properties": {
                 "validFrom": {
-                    "type": "string",
-                    "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+                    "type": "string"
                 },
                 "validTo": {
                     "type": "string"
