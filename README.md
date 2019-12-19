@@ -19,7 +19,7 @@ Execution:
 
 ### Configuration needed for execution
 
-In order to run a model, some configuration is needed to run. This can be configured on a folder-basis.
+In order to run a model, some configuration is needed to run. This can be configured on a folder-basis. (Right click on the empty space in a vscode folder, navigate to Extensions -> FLINT editor, click `Edit settings.json`)
 
 Example config:
 
