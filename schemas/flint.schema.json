@@ -46,16 +46,8 @@
         "expression": {
             "anyOf": [
                 {
-                    "$ref": "#/definitions/multi"
-                },
-                {
-                    "$ref": "#/definitions/not"
-                },
-                {
-                    "$ref": "#/definitions/list"
-                },
-                {
                     "type": "string",
+                    "pattern": "^[.*]$",
                     "defaultSnippets": [
                         {
                             "label": "Fact",
@@ -63,6 +55,15 @@
                             "body": "[$1]"
                         }
                     ]
+                },
+                {
+                    "$ref": "#/definitions/multi"
+                },
+                {
+                    "$ref": "#/definitions/not"
+                },
+                {
+                    "$ref": "#/definitions/list"
                 }
             ]
         },
