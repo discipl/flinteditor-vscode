@@ -3,7 +3,7 @@
 	"displayName": "FlintEditor",
 	"publisher": "pim",
 	"description": "",
-	"version": "0.2.3",
+	"version": "0.3.0",
 	"engines": {
 		"vscode": "^1.37.0"
 	},
@@ -87,7 +87,7 @@
 	},
 	"dependencies": {
 		"@discipl/compliance-by-design": "^0.1.4",
-		"@discipl/law-reg": "^0.3.7",
+		"@discipl/law-reg": "^0.4.0",
 		"jsonc-parser": "^2.1.1"
 	}
 }
