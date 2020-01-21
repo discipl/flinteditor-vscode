@@ -103,7 +103,7 @@
             "properties": {
                 "expression": {
                     "type": "string",
-                    "pattern": "^(AND)|(OR)$"
+                    "pattern": "^(AND)|(OR)|(LESS_THAN)|(EQUAL)|(SUM)|(PRODUCT)|(MIN)|(MAX)$"
                 },
                 "operands": {
                     "type": "array",
