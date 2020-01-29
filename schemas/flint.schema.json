@@ -136,6 +136,66 @@
                             "^$1"
                         ]
                     }
+                },
+                {
+                    "label": "LESS_THAN",
+                    "description": "Insert LESS_THAN",
+                    "body": {
+                        "expression": "LESS_THAN",
+                        "operands": [
+                            "^$1"
+                        ]
+                    }
+                },
+                {
+                    "label": "EQUAL",
+                    "description": "Insert EQUAL",
+                    "body": {
+                        "expression": "EQUAL",
+                        "operands": [
+                            "^$1"
+                        ]
+                    }
+                },
+                {
+                    "label": "SUM",
+                    "description": "Insert SUM",
+                    "body": {
+                        "expression": "SUM",
+                        "operands": [
+                            "^$1"
+                        ]
+                    }
+                },
+                {
+                    "label": "PRODUCT",
+                    "description": "Insert PRODUCT",
+                    "body": {
+                        "expression": "PRODUCT",
+                        "operands": [
+                            "^$1"
+                        ]
+                    }
+                },
+                {
+                    "label": "MIN",
+                    "description": "Insert MIN",
+                    "body": {
+                        "expression": "MIN",
+                        "operands": [
+                            "^$1"
+                        ]
+                    }
+                },
+                {
+                    "label": "MAX",
+                    "description": "Insert MAX",
+                    "body": {
+                        "expression": "MAX",
+                        "operands": [
+                            "^$1"
+                        ]
+                    }
                 }
             ]
         },
