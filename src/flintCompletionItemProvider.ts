@@ -7,9 +7,12 @@ export class FlintCompletionItemProvider implements vscode.CompletionItemProvide
     private dutyIdentifiers : string[] = [];
     constructor(jsonInfo: JsonInfo) {
         console.log("Instantiating FlintCompletionItemProvider");
-        this.actIdentifiers = jsonInfo.modelValidator.getDefinitionsForType('acts').map((definition: { identifier: any; }) => definition.identifier);
-        this.factIdentifiers = jsonInfo.modelValidator.getDefinitionsForType('facts').map((definition: { identifier: any; }) => definition.identifier);
-        this.dutyIdentifiers = jsonInfo.modelValidator.getDefinitionsForType('duties').map((definition: { identifier: any; }) => definition.identifier);
+        if (jsonInfo.modelValidator.getDefinitionsForType) {
+            this.actIdentifiers = jsonInfo.modelValidator.getDefinitionsForType('acts').map((definition: { identifier: any; }) => definition.identifier);
+            this.factIdentifiers = jsonInfo.modelValidator.getDefinitionsForType('facts').map((definition: { identifier: any; }) => definition.identifier);
+            this.dutyIdentifiers = jsonInfo.modelValidator.getDefinitionsForType('duties').map((definition: { identifier: any; }) => definition.identifier);
+    
+        }
     }
 
     provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
