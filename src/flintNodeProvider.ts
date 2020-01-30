@@ -25,7 +25,7 @@ export class FlintNodeProvider implements vscode.TreeDataProvider<ActNode> {
     }
 
     private async getActsFromJson(): Promise<ActNode[]> {
-        if (vscode.window.activeTextEditor) {
+        if (vscode.window.activeTextEditor && this.jsonInfo.modelValidator.getDefinitionsForType) {
             return this.jsonInfo.modelValidator.getDefinitionsForType(this.type)
             .map((definitionIdentifierInfo: { offset: number; identifier: string; }) => {
                 const linePosition = vscode.window.activeTextEditor!.document.positionAt(definitionIdentifierInfo.offset);

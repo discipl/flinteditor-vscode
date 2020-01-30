@@ -11,13 +11,13 @@ export class FlintDefinitionProvider implements vscode.DefinitionProvider {
 
     provideDefinition(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken): vscode.ProviderResult<vscode.Location | vscode.Location[] | vscode.LocationLink[]> {
         const offset = document.offsetAt(position);
-        const definition = this.jsonInfo.modelValidator.getDefinitionForOffset(offset);
-        if (definition) {
-            const linePosition = document.positionAt(definition.offset);
-            return Promise.resolve(new vscode.Location(document.uri, linePosition));  
+        if (this.jsonInfo.modelValidator.getDefinitionForOffset) {
+            const definition = this.jsonInfo.modelValidator.getDefinitionForOffset(offset);
+            if (definition) {
+                const linePosition = document.positionAt(definition.offset);
+                return Promise.resolve(new vscode.Location(document.uri, linePosition));  
+            }
         }
-
-        
         
         return Promise.resolve(null);
     }
