@@ -47,7 +47,7 @@
             "anyOf": [
                 {
                     "type": "string",
-                    "pattern": "^\\[[^[\\]]*\\]$",
+                    "pattern": "^(\\[[^[\\]]*\\])|(<<>>)$",
                     "defaultSnippets": [
                         {
                             "label": "Fact",
