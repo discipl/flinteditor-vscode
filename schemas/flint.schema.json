@@ -26,7 +26,6 @@
             "required": [
                 "validFrom",
                 "citation",
-                "juriconnect",
                 "text"
             ],
             "defaultSnippets": [
