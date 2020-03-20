@@ -86,8 +86,8 @@
 		"vscode-test": "^1.0.2"
 	},
 	"dependencies": {
-		"@discipl/compliance-by-design": "^0.2.0",
-		"@discipl/law-reg": "^0.5.0",
+		"@discipl/compliance-by-design": "^0.2.1",
+		"@discipl/law-reg": "^0.5.3",
 		"jsonc-parser": "^2.1.1"
 	}
 }
