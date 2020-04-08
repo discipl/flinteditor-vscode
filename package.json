@@ -4,10 +4,10 @@
 	"publisher": "pim",
 	"description": "",
 	"version": "0.5.3",
-    "repository": {
-    "type": "git",
-    "url": "git+https://github.com/discipl/flinteditor-vscode.git"
-    },
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/discipl/flinteditor-vscode.git"
+	},
 	"engines": {
 		"vscode": "^1.37.0"
 	},
