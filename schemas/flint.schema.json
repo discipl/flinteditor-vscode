@@ -223,14 +223,6 @@
                                 "expression": "NOT",
                                 "operand": "^$1"
                             }
-                        },
-                        {
-                            "label": "LITERAL",
-                            "description": "Insert LITERAL",
-                            "body": {
-                                "expression": "LITERAL",
-                                "operand": "^$1"
-                            }
                         }
                     ]
                 },
@@ -261,14 +253,6 @@
                         "operand"
                     ],
                     "defaultSnippets": [
-                        {
-                            "label": "NOT",
-                            "description": "Insert NOT",
-                            "body": {
-                                "expression": "NOT",
-                                "operand": "^$1"
-                            }
-                        },
                         {
                             "label": "LITERAL",
                             "description": "Insert LITERAL",
