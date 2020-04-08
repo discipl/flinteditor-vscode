@@ -199,36 +199,85 @@
             ]
         },
         "single": {
-            "type": "object",
-            "properties": {
-                "expression": {
-                    "type": "string",
-                    "pattern": "^(NOT|LITERAL)$"
+            "anyOf": [
+                { 
+                    "type": "object",
+                    "properties": {
+                        "expression": {
+                            "type": "string",
+                            "pattern": "^NOT$"
+                        },
+                        "operand": {
+                            "$ref": "#/definitions/expression"
+                        }
+                    },
+                    "required": [
+                        "expression",
+                        "operand"
+                    ],
+                    "defaultSnippets": [
+                        {
+                            "label": "NOT",
+                            "description": "Insert NOT",
+                            "body": {
+                                "expression": "NOT",
+                                "operand": "^$1"
+                            }
+                        },
+                        {
+                            "label": "LITERAL",
+                            "description": "Insert LITERAL",
+                            "body": {
+                                "expression": "LITERAL",
+                                "operand": "^$1"
+                            }
+                        }
+                    ]
                 },
-                "operand": {
-                    "$ref": "#/definitions/expression"
-                }
-            },
-            "required": [
-                "expression",
-                "operand"
-            ],
-            "defaultSnippets": [
-                {
-                    "label": "NOT",
-                    "description": "Insert NOT",
-                    "body": {
-                        "expression": "NOT",
-                        "operand": "^$1"
-                    }
-                },
-                {
-                    "label": "LITERAL",
-                    "description": "Insert LITERAL",
-                    "body": {
-                        "expression": "LITERAL",
-                        "operand": "^$1"
-                    }
+                { 
+                    "type": "object",
+                    "properties": {
+                        "expression": {
+                            "type": "string",
+                            "pattern": "^LITERAL$"
+                        },
+                        "operand": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "boolean"
+                                }
+                            ]
+                            
+                        }
+                    },
+                    "required": [
+                        "expression",
+                        "operand"
+                    ],
+                    "defaultSnippets": [
+                        {
+                            "label": "NOT",
+                            "description": "Insert NOT",
+                            "body": {
+                                "expression": "NOT",
+                                "operand": "^$1"
+                            }
+                        },
+                        {
+                            "label": "LITERAL",
+                            "description": "Insert LITERAL",
+                            "body": {
+                                "expression": "LITERAL",
+                                "operand": "^$1"
+                            }
+                        }
+                    ]
                 }
             ]
         }
