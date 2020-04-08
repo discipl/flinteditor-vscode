@@ -3,7 +3,11 @@
 	"displayName": "FlintEditor",
 	"publisher": "pim",
 	"description": "",
-	"version": "0.5.2",
+	"version": "0.5.3",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/discipl/flinteditor-vscode.git"
+	},
 	"engines": {
 		"vscode": "^1.37.0"
 	},
@@ -87,7 +91,7 @@
 	},
 	"dependencies": {
 		"@discipl/compliance-by-design": "^0.2.2",
-		"@discipl/law-reg": "^0.5.4",
+		"@discipl/law-reg": "^0.5.5",
 		"jsonc-parser": "^2.1.1"
 	}
 }
